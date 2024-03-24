@@ -33,6 +33,7 @@ namespace ConsoleApp3.Model
         public override void loadCargo(double weight)
         {
             Console.WriteLine("Podaj id produktu, który chcesz dodać");
+            showProductList();
             int productId = int.Parse(Console.ReadLine());
             getProductTemperature(productId);
             if (getCargoWeight() + weight > getMaxLoadWeight())
@@ -132,7 +133,9 @@ namespace ConsoleApp3.Model
         }
         public override string ToString()
         {
-            return "Refrigerated Container";
+            return "Refrigerated Container " + getSerialNumber() + "{ temperatura " + temperature + 
+                   ", maksymalna waga ładunku: " + getMaxLoadWeight() +  ", waga ładunku"
+                   + getCargoWeight() + " }"  ;
         }
     }
 }

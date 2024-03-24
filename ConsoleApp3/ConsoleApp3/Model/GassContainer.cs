@@ -40,6 +40,8 @@ public class GassContainer : Container, IHazardNotifier
 
     public override string ToString()
     {
-        return "Gass Container";
+        return "Gass Container " + getSerialNumber() + "{ "+ 
+               "maksymalna waga ładunku: " + getMaxLoadWeight() + ", cisnienie " + atmosphericPressure + ", waga ładunku"
+               + getCargoWeight() +"  }"  ;
     }
 }

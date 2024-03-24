@@ -64,6 +64,8 @@ public class LiquidContainer : Container, IHazardNotifier
     }
     public override string ToString()
     {
-        return "Liquid Container";
+        return "Liquid Container " + getSerialNumber() + "{ "+ 
+            "maksymalna waga ładunku: " + getMaxLoadWeight() + ", czy bezpieczny ładunek: " + type() + ", waga ładunku"
+            + getCargoWeight() + " }"  ;
     }
 }

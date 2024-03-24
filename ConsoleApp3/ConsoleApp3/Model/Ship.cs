@@ -2,7 +2,8 @@ namespace ConsoleApp3.Model;
 
 public class Ship
 {
-    public static int number;
+    public static int number = 0;
+    private int num;
     private List<Container> containers;
     private double maxSpeed;
     private int maxContainersNumber;
@@ -12,6 +13,7 @@ public class Ship
 
     public Ship(double maxSpeed, int maxContainersNumber, double maxContainersWeight)
     {
+        num = number;
         number++;
         containersWeight = 0;
         containers = new List<Container>();
@@ -56,10 +58,12 @@ public class Ship
 
     public void removeContainer()
     {
-        int containerId = int.Parse(Console.ReadLine());
         Console.WriteLine("Podaj id kontenera, który chcesz usunąć");
         Console.WriteLine("Lista kontenerów:");
-        displayContainers();
+        displayContainersSerialNumbers();
+        int containerId = int.Parse(Console.ReadLine());
+       
+        
 
         if (containerId > containers.Count || containerId < 0)
         {
@@ -74,7 +78,7 @@ public class Ship
 
     public void replaceContainer(Container container)
     {
-        displayContainers();
+        displayContainersSerialNumbers();
         Console.WriteLine("Podaj nr seryjny kontenera który chcesz zastąpić");
         string input = Console.ReadLine();
         
@@ -89,8 +93,8 @@ public class Ship
 
     public void moveContainerToAnotherShip(Ship ship)
     {
-        displayContainers();
-        Console.WriteLine("Podaj nr kontenera który chcesz przeniesc");
+        displayContainersSerialNumbers();
+        Console.WriteLine("Podaj indeks kontenera który chcesz przeniesc");
         int containerId = int.Parse(Console.ReadLine());
         if (containerId > containers.Count || containerId < 0)
         {
@@ -105,7 +109,7 @@ public class Ship
         }
     }
 
-    public void displayContainers()
+    public void displayContainersSerialNumbers()
     {
         for (int i = 0; i < containers.Count; i++)
         {
@@ -113,9 +117,17 @@ public class Ship
         }
     }
 
+    public void displayContainers()
+    {
+        for (int i = 0; i < containers.Count; i++)
+        {
+            Console.WriteLine(i + "." + containers[i]);
+        }
+    }
+
     public override string ToString()
     {
-        return "Kontenerowiec: "+ number+ "{ " + "maksymalna predkosc: " + maxSpeed + ", maksymalna liczba kontenerów: " +
+        return "Kontenerowiec: "+ num+ "{ " + "maksymalna predkosc: " + maxSpeed + ", maksymalna liczba kontenerów: " +
                maxContainersNumber + ", maksymalna waga kontenerów: " + maxContainersWeight + "}";
     }
 }
