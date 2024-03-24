@@ -62,4 +62,8 @@ public class LiquidContainer : Container, IHazardNotifier
     {
         Console.WriteLine(message);
     }
+    public override string ToString()
+    {
+        return "Liquid Container";
+    }
 }

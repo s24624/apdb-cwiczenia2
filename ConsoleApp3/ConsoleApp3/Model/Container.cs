@@ -55,6 +55,10 @@ public abstract class Container
     {
         return serialNumber;
     }
-    
+
+    public double getFullWeight()
+    {
+        return cargoWeight + ownWeight;
+    }
 
 }

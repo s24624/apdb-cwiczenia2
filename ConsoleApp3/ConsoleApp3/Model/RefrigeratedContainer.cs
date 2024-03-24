@@ -48,11 +48,12 @@ namespace ConsoleApp3.Model
             }
             else if (temperature < productTemperature)
             {
-                Console.WriteLine("Temperatura kontenera jest zbyt niska dla wymaganej temperatury przez ten produkt \n" +
+                Console.WriteLine(
+                    "Temperatura kontenera jest zbyt niska dla wymaganej temperatury przez ten produkt \n" +
                     "Temperatura w kontenerze: " + temperature + "\n" + "Temperatura wymagana dla produktu: " +
                     productTemperature);
             }
-            else if(isFirstProductAdded && productTemperature != firstProductTemperature)
+            else if (isFirstProductAdded && productTemperature != firstProductTemperature)
             {
                 Console.WriteLine("Kontener może przechowywać produkty, które mają tę samą temperaturę przewożenia");
             }
@@ -63,8 +64,10 @@ namespace ConsoleApp3.Model
                     firstProductTemperature = productTemperature;
                     isFirstProductAdded = true;
                 }
+
                 addProductAtContainer(productId);
             }
+
             setCargoWeight(weight);
         }
 
@@ -78,6 +81,7 @@ namespace ConsoleApp3.Model
                 {
                     Console.WriteLine($"  Nazwa: {innerKvp.Key}, Temperatura: {innerKvp.Value}");
                 }
+
                 Console.WriteLine();
             }
         }
@@ -118,6 +122,7 @@ namespace ConsoleApp3.Model
                 {
                     productTemperature = kvp.Value;
                 }
+
                 Console.WriteLine(productTemperature);
             }
             else
@@ -125,5 +130,10 @@ namespace ConsoleApp3.Model
                 Console.WriteLine("Produkt o podanym identyfikatorze nie istnieje.");
             }
         }
+        public override string ToString()
+        {
+            return "Refrigerated Container";
+        }
     }
 }
+

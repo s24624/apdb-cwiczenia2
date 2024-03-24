@@ -37,4 +37,9 @@ public class GassContainer : Container, IHazardNotifier
     {
         Console.WriteLine(message);
     }
+
+    public override string ToString()
+    {
+        return "Gass Container";
+    }
 }
